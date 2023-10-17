@@ -1,0 +1,54 @@
+{% extends 'user/user.html' %}
+	{% load static %} 
+	{% block content %}
+	{% if msg %}
+	<script>
+		alert("{{msg}}")
+	</script>
+	{% endif %}
+    <div class="new-collections">
+        <div class="container">
+            <h3 class="animated wow zoomIn" data-wow-delay=".5s">Products</h3>
+            <!-- <p class="est animated wow zoomIn" data-wow-delay=".5s">Excepteur sint occaecat cupidatat non proident, sunt
+                in culpa qui officia
+                deserunt mollit anim id est laborum.</p> -->
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Clear all">
+                </form>
+            <div class="new-collections-grids">
+                <!-- <div class="row"> -->
+                {% for i in abc%}
+                <div class="col-md-3 new-collections-grid">
+                    <div class="new-collections-grid1 animated wow slideInUp">
+                        <div class="new-collections-grid1-image">
+                            <a href="single.html" class="product-image"><img src="/static/image/{{i.p_id.p_img}}" alt=" "
+                                    class="img-responsive" /></a>
+
+                        </div>
+                        <h4><a href="">{{i.p_id.p_name}}</a></h4><br>
+                        
+                        <p style="margin-left: 20%; margin-top: -12%; color: black; font-size: larger;">
+                            {{i.cart_stock}}</p>
+                        <p style="margin-left: 20%; margin-top: -12%; color: black; font-size: larger;">
+                            {{i.cart_rate}}</p>
+                        <p style="margin-left: 10%; margin-top: -12%; color: black; font-size: larger;">
+                        </p>
+                        
+                        <!-- <div class="new-collections-grid1-left simpleCart_shelfItem" tyle="margin-left: 10%;">
+                            <p><a class="item_add" href="/cart?id={{i.p_id}}" style="margin-left:60%;">Cart</a></p> -->
+                           
+                
+            </div>
+        </div>
+            
+                        
+                {% endfor %}
+            </div>
+
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    <!-- //collections -->
+	{% endblock %}  

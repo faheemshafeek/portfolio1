@@ -1,0 +1,46 @@
+
+{% extends 'admin/admin_home.html' %}
+{% load static %} 
+{% block content %}
+{% if msg %}
+<script>
+	alert("{{msg}}")
+</script>
+{% endif %}
+
+    <!-- collections -->
+    <div class="new-collections">
+        <div class="container">
+            <h3 class="animated wow zoomIn" data-wow-delay=".5s">Users</h3>
+            <!-- <p class="est animated wow zoomIn" data-wow-delay=".5s">Excepteur sint occaecat cupidatat non proident, sunt -->
+                <!-- in culpa qui officia
+                deserunt mollit anim id est laborum.</p> -->
+            <div class="new-collections-grids">
+                {% for i in abc%}
+                <div class="col-md-3 new-collections-grid">
+                    <div class="new-collections-grid1 animated wow slideInUp">
+                        <div class="new-collections-grid1-image">
+                            <!-- <a href="single.html" class="product-image"><img src="/static{{i.p_img}}" alt=" "
+                                    class="img-responsive" /></a> -->
+          
+                        </div>
+                        <h4><a href="" >{{i.dboy_name}}&nbsp;{{i.dboy_lname}}</a></h4>
+                        <br><br>
+                        <!-- :<p style="margin-left: 20%; margin-top: -12%; color: black; font-size: larger;">{{i.dboy_phone}}</p> -->
+                        <p style="margin-left: 10%; margin-top: -12%; color: black; font-size: larger;">{{i.dboy_email}}</p>
+                        <div class="new-collections-grid1-left simpleCart_shelfItem"tyle="margin-left: 30%;">
+                            <p><a class="item_add" href="/admin_approve_dboy?id={{i.dboyid}}" style="margin-left:10%;">Approve</a>
+                                
+                                 <a
+                                class="item_add" href="/admin_delete_dboy?id={{i.dboyid}}">Delete
+                            </a></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- //collections -->
+
+	{% endblock %}

@@ -1,0 +1,39 @@
+
+{% extends 'admin/admin_home.html' %}
+{% load static %} 
+{% block content %}
+{% if msg %}
+<script>
+    alert("{{msg}}")
+</script>
+{% endif %}
+    <!-- register -->
+    <div class="register">
+        <div class="container">
+            <h3 class="animated wow zoomIn" data-wow-delay=".5s">Update Products</h3>
+           
+            <div class="login-form-grids">
+                <h5 class="animated wow slideInUp" data-wow-delay=".5s">Product information</h5>
+                {% for i in abc %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                
+
+                    <!-- <input type="file" placeholder="Image..." required=" " name="Image"><br> -->
+                    <input type="text" placeholder=" Product Name..." required=" " value="{{i.p_name}}"
+                        name="a1">
+                    <br>
+                    <input type="text" placeholder="Stock" required=" " value="{{i.p_stock}}" name="a2"><br>
+                    <input type="text" placeholder="Price" required=" " value="{{i.p_rate}}" name="a3">
+                    <input type="submit" value="Submit">
+                </form>
+                {% endfor %}
+            </div>
+            <div class="register-home animated wow slideInUp" data-wow-delay=".5s">
+                <!-- <a href="index.html">Home</a> -->
+            </div>
+        </div>
+    </div>
+    <!-- //register -->
+	{% endblock %}
+
